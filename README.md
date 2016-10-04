@@ -1,9 +1,9 @@
 # hello-world
-personal coding(algoritms, etc)
+personal coding(algorithm, personal records, SQL, data analysis, etc)
 
-I'm a software-Engineer who works in Samsung SDS.
+I'm a Software-Engineer who works in Samsung SDS.
 
-Know about the Git for almost an year. I've always made excuses that I have no time to user the GIT.
+Known/Heard about the Git HUB for almost an year. I've always made excuses of using the GIT.
 
 Better late than never.
 

@@ -11,7 +11,7 @@ public class Template{
 
 	public static void main(String [] args) throws NumberFormatException, IOException{
 		
-		System.setIn(new FileInputStream("D:\\workspace\\Algorithms\\src\\basic\\Template.txt"));
+		System.setIn(new FileInputStream("D:\\workspace\\hello-world\\Algorithms\\src\\basic\\Template.txt"));
 		//Scanner scan = new Scanner(System.in);
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
