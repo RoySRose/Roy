@@ -18,7 +18,7 @@ public class KMP{
 	
 	public static void main(String [] args) throws FileNotFoundException{
 		
-		System.setIn(new FileInputStream("D:\\workspace\\Algorithms\\src\\Strings\\KMP.txt"));
+		System.setIn(new FileInputStream("D:\\workspace\\hello-world\\Algorithms\\src\\Strings\\KMP.txt"));
 		Scanner sc = new Scanner(System.in);
 		
 		int T=sc.nextInt();
@@ -73,7 +73,7 @@ public class KMP{
 	}
 
 	private static void Initpi(char[] N) {
-		int start = 0;
+		int start = 1;
 		int matched = 0;
 		
 		while(start + matched < Nlen){
@@ -100,6 +100,7 @@ public class KMP{
 		int matched = 0;
 		
 		while(start < Hlen - Nlen){
+		
 			if(matched < Nlen && H[start + matched] == N[matched]){
 				matched++;
 				if(matched == Nlen){
