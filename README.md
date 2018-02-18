@@ -1,12 +1,11 @@
-# hello-world
-personal coding(algorithm, personal records, SQL, data analysis, etc)
+# Hello World
+Personal Storage of codes that I've
+ - studied.  
+ - played with.
+ - entered contests with
+ - and etc
 
-I'm a Software-Engineer who works in Samsung SDS.
-
-Known/Heard about the Git HUB for almost an year. I've always made excuses of using the GIT.
-
-Better late than never.
-
-Here is one more step to my bright future.
+To get to about me visit  
+https://roysrose.github.io/roy/
 
 Have a nice day:)
