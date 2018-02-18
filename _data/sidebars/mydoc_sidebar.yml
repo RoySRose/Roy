@@ -1,0 +1,24 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: Jekyll Doc Theme
+  version: 6.0
+  folders:
+
+  - title: About Roy
+    url: /index.html
+    output: link
+
+  - title: Programming
+    output: web
+    folderitems:
+
+    - title: single-jar application
+      url: /single_jar_app.html
+      output: web
+
+    - title: new project to Github
+      url: /new_project_to_git.html
+      output: web
+
