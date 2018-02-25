@@ -22,3 +22,17 @@ entries:
       url: /new_project_to_git.html
       output: web
 
+    - title: Twitter bot with Java
+      url: /twitterbot.html
+      output: web
+
+
+  - title: Effective Java 3rd Edition
+    output: web
+    folderitems:
+
+    - title: Ch2 Creating and Destroying Objects
+      url: /chapter2.html
+      output: web
+
+
