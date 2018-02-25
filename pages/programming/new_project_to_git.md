@@ -2,6 +2,7 @@
 title: New project to Github
 keywords: create new repository, initialize git locally, local project to github, local to git, new git, setting git 
 last_updated: January 14, 2018
+created : February 14, 2018
 tags: [programming]
 summary: "Making a new project and pushing to Github"
 sidebar: mydoc_sidebar

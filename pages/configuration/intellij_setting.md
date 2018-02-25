@@ -2,7 +2,7 @@
 title: Personal IntelliJ configuration
 keywords: intellij setting, intellij configuration 
 last_updated: January 15, 2018
-tags: [programming]
+tags: [configuration]
 summary: "Personal IntelliJ configuration"
 sidebar: mydoc_sidebar
 permalink: intellij_setting.html

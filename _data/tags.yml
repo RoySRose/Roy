@@ -4,4 +4,6 @@
 allowed-tags:
   - introduction
   - programming
+  - effective_java
+  - configuration
 

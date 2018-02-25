@@ -2,6 +2,7 @@
 title: To make a single-jar application with maven
 keywords: single jar application, single-jar, maven single application, single program 
 last_updated: January 13, 2018
+created : February 13, 2018
 tags: [programming]
 summary: "Making a single-jar application"
 sidebar: mydoc_sidebar

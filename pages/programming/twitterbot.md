@@ -2,6 +2,7 @@
 title: How to build a simple twitter bot with Java
 keywords: bot for twitter, java bot for twitter, simple java twitter bot, twitbot, twitter, twitter bot with java 
 last_updated: February 20, 2018
+created : February 20, 2018
 tags: [programming]
 summary: "Making simple twitter bot with java"
 sidebar: mydoc_sidebar
