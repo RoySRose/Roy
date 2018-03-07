@@ -89,7 +89,8 @@ The LinkedHashMap class facilitates the latter approach with its *removeEldestEn
 * When you implement an API, clients may register callbacks and not deregister them.
 Store only weak references to them, for instance , by storing them only as keys in a *WeakHashMap*
 
-
+Bottom line : Nulling out object references should be the exception rather than the norm. The best way to eliminate an obsolete reference is to let the variable that contained the reference fall out of scope. This occurs naturally if you define each variable in
+the narrowest possible scope (Item 45).
 
 ***
 ## Item8 : Avoid finalizers and cleaners
@@ -178,6 +179,8 @@ public class Teenager {
 ````
 
 Bottom line : don't use cleaners or finalizers except for two reasons mentioned above
+
 *** 
- 
+
+
 {% include links.html %}
