@@ -86,8 +86,8 @@ program failing with a NULLPointerException when dereferenced by mistake
 The LinkedHashMap class facilitates the latter approach with its *removeEldestEntry* method. For more sophisticated caches, consider *java.lang.ref* directly
 
 **case3 : listeners and other call backs** 
-* When you implement an API where clients register callbacks.
-store only weak references to them, for instance , by storing them only as keys in a *WeakHashMAp*
+* When you implement an API, clients may register callbacks and not deregister them.
+Store only weak references to them, for instance , by storing them only as keys in a *WeakHashMap*
 
 
 
@@ -104,6 +104,7 @@ Cleaners are less dangerous than finalizers, but still unpredictable, slow, and 
  Cleaners are a bit better but still no guarantees
  - Don't rely on methods System.gc and System.runFinalization 
  - Never depend on a finalizer or cleaner to update persistent state
+ - Never do anything time-critical in a finalizer or cleaner
  - **Severe performance penalty to use**
  - **Finalizers have a serious security problem(finalizer attack)**
  - To protect non-final classes from finalizer attacks, write a final **finalize** method that does nothing
