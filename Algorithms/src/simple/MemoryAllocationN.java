@@ -11,7 +11,7 @@ public class MemoryAllocationN {
 		
 
 		ArrayList<Integer[]> input = new ArrayList<Integer[]>();
-		input.add(1, ());
+		input.add(1);
 //		input.add(2);
 //		input.add(3);
 //		input.add(4);
@@ -27,7 +27,7 @@ public class MemoryAllocationN {
 		ArrayList<String> input = new ArrayList<String>();
 		Scanner scan = new Scanner(System.in);
 		String temp = "";
-		System.out.println("´Ü¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä, x Ä¡¸é ³¡³²: ");
+		System.out.println("ï¿½Ü¾î¸¦ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½, x Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ");
 		//int i =0;
 		
 		while(true){

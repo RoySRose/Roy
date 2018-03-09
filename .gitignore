@@ -1,0 +1,12 @@
+.idea/*
+*.idea
+
+production
+
+thrift/*
+Algorithms/*
+Effective_Java_E3/*
+guice/*
+simple/*
+SimpleSpringMVC/*
+production/*
