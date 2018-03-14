@@ -1,7 +1,7 @@
 ---
 title: Chapter2. Creating and Destroying Objects
 keywords: effective java, effective java 3rd ch2 
-last_updated: February 25, 2018
+last_updated: March 10, 2018
 created : February 25, 2018
 tags: [effective_java]
 summary:
@@ -89,8 +89,9 @@ The LinkedHashMap class facilitates the latter approach with its *removeEldestEn
 * When you implement an API, clients may register callbacks and not deregister them.
 Store only weak references to them, for instance , by storing them only as keys in a *WeakHashMap*
 
-Bottom line : Nulling out object references should be the exception rather than the norm. The best way to eliminate an obsolete reference is to let the variable that contained the reference fall out of scope. This occurs naturally if you define each variable in
-the narrowest possible scope (Item 45).
+{% include note.html content="Nulling out object references should be the exception rather than the norm. The best way to eliminate an obsolete reference is to let the variable that contained the reference fall out of scope. This occurs naturally if you define each variable in
+                              the narrowest possible scope (Item 45)." %}
+
 
 ***
 ## Item8 : Avoid finalizers and cleaners
@@ -178,9 +179,43 @@ public class Teenager {
 }
 ````
 
-Bottom line : don't use cleaners or finalizers except for two reasons mentioned above
+{% include note.html content="Don't use cleaners or finalizers except for two reasons mentioned above" %}
 
-*** 
+***
+## Item9 : Prefer try-with-resources to try-finally
 
+As finalizers don't work very well(Item8), *try-with-resources* should be used.
+Even correct code for resources with *try-finally* statements has a subtle deficiency.
+The code in both the *try* block and the *finally* block is capable of throwing exceptions.
+When both exceptions occur there is no recode of the first exception in the exception stack trace.
+Even though usually it's the first exception needed to debug.
+
+Below is the example of using try-with-resources
+
+````javajava
+    // try-with-resources - the best way to close resources!
+    static String firstLineOfFile(String path) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+            return br.readLine();
+        }
+    }
+
+    // try-with-resources on multiple resources - short and sweet
+    static void copy(String src, String dst) throws IOException {
+        try (InputStream in = new FileInputStream(src);
+             OutputStream out = new FileOutputStream(dst)){
+            byte[] buf = new byte[BUFFER_SIZE];
+            int n;
+            while ((n= in.read(buf)) >= 0)
+                out.write(buf,0,n);
+        }
+    }
+````
+
+Code of *try-with-resource* version is shorter, more readable and provide better diagnostics.
+Even for the exceptions latter one are suppressed and also printed in stack trace
+
+
+{% include note.html content="use try-with-resource when working with resources" %} 
 
 {% include links.html %}
