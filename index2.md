@@ -16,6 +16,14 @@ I love programming, like to travel to a new place and meet new people.
 The reason I started this page is simple. To keep track of myself.  
 'Better late than Never'. Any contact is always welcome.
 
+# Career
+### Samsung SDS
+2011.08 ~ 2013.03 Software Engineer, Develop/Operate world wide HR system of Samsung  
+2014.04 ~ 2015.12 Software Engineer, Provide/Analyse HR data for Samsung Group  
+2016.01 ~ 2017.11 Sales, Logistics Sales 
+### NAVER
+2017.12 ~         Software Engineer/Evangelist, Naver Pinpoint(Open Source)
+
 # Contact
 Contact : sungwook0115.kim@gmail.com
 

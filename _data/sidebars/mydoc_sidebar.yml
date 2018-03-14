@@ -6,9 +6,9 @@ entries:
   version: World
   folders:
 
-#  - title: About Roy
-#    url: /index.html
-#    output: link
+  - title: About Roy
+    url: /index.html
+    output: link
 
   - title: Programming
     output: web
