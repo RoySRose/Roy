@@ -256,10 +256,22 @@ use == operand for primitive fields except for Double, Float.
 ***
 ## Item12 : Always override toString
 
-{% include note.html content="" %}
+Overriding `toString` is less critical than `equals` and `hashCode` as mentioned in the earlier part of this article,
+But still as important for any developers who uses this class and much easier to debug.
+
+Practically, `toString` method should return all information in the object.
+It'll be good to document your intentions. 
+
+Usually it's not a good idea to specify the format, but still acceptable if there is any standard representation in the society that everyone agrees.
+
+You don't have to override `toString` method in static utility class(Item4) and most enum type(item 34), since Java already provides a perfectly good one.
+However you should write for the abstract class whose subclasses share a common string representation.
+
+{% include note.html content="Always override toString" %}
 
 ***
 ## Item13 : Override clone judiciously
+
 
 {% include note.html content="" %}
 

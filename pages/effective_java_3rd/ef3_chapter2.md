@@ -81,7 +81,7 @@ The benefit of nulling out obsolete references is
 program failing with a NULLPointerException when dereferenced by mistake
  
 **case2 : caches**
-* Represent cache as <a href="#" data-toggle="tooltip" data-original-title="{{site.data.glossary.WeakHashMap}}">*WeakHashMap*</a>  in certain conditions (Do lookup about this before using it)
+* Represent cache as <a href="#" data-toggle="tooltip" data-original-title="{{site.data.glossary.WeakHashMap}}">*WeakHashMap*</a> in certain conditions (Do lookup about this before using it)
 * Cache should occasionally be cleansed of entries with background thread(ScheduledThreadPoolExecutor) or as a side effect of adding new entry to cache.
 The LinkedHashMap class facilitates the latter approach with its *removeEldestEntry* method. For more sophisticated caches, consider *java.lang.ref* directly
 

@@ -1,3 +1,4 @@
 jekyll_platform: "Jekyll is a static site generator that builds sites using most modern web technologies."
 
-WeakHashMap: "Elements in a weak hashmap can be reclaimed by the garbage collector if there are no strong/soft references to the key object, this makes them useful for caches/lookup storage."
+WeakHashMap: "Elements in a weak hashmap can be reclaimed by the garbage collector if there are no strong/soft references to the key object, this makes them useful for caches/lookup storage"
+mixin : "Mixin is a type that a class can implement in addition to its “primary type” to declare that it provides some optional behavior"
