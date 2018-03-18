@@ -272,8 +272,33 @@ However you should write for the abstract class whose subclasses share a common 
 ***
 ## Item13 : Override clone judiciously
 
+The *Cloneable* interface was intended as a <a href="#" data-toggle="tooltip" data-original-title="{{site.data.glossary.mixin}}">*mixin interface*</a> 
+(Item 18) for objects to advertise that they permit cloning.
 
-{% include note.html content="" %}
+Immutable classes has no need for providing a *clone* method.
+
+When creating a *clone* method, you must ensure that it does no harm to the original object.
+ch3.item13.ex3 shows problem when original objects are affected by the clones.
+````java
+ @Override
+     public Stack clone() {
+         try {
+             Stack result = (Stack) super.clone();
+             result.elements = elements.clone(); //without this line, clone will affect originals
+             return result;
+         } catch (CloneNotSupportedException e) {
+             throw new AssertionError();
+         }
+     }
+````
+Clone will not work if elements field was final. *Cloneable* is incompatible with use of final fields referring to mutable objects.
+
+If you extend a class that already implements *Cloneable*, you have little choice but to implement a well behaved clone method.
+Otherwise, **A better approach to object copying is to provide a *copy constructor* or *copy factor.***
+
+Should not create *clone* method if the class is to be extended and new interface should not extend Cloneable.
+
+{% include note.html content="Copy functionality is best provided by constructors or factories, except Arrays" %}
 
 
 
