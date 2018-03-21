@@ -192,7 +192,7 @@ Even though usually it's the first exception needed to debug.
 
 Below is the example of using try-with-resources
 
-````javajava
+````java
     // try-with-resources - the best way to close resources!
     static String firstLineOfFile(String path) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(path))){
@@ -213,9 +213,9 @@ Below is the example of using try-with-resources
 ````
 
 Code of *try-with-resource* version is shorter, more readable and provide better diagnostics.
-Even for the exceptions latter one are suppressed and also printed in stack trace
+Even for the exceptions, latter one is suppressed resulting the first one printed in stack trace.
 
 
-{% include note.html content="use try-with-resource when working with resources" %} 
+{% include note.html content="Always use try-with-resource when working with resources" %} 
 
 {% include links.html %}

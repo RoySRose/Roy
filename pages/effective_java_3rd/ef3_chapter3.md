@@ -246,10 +246,15 @@ public boolean equals(Object o) {
             pn.prefix == prefix;
 }
 ````
-use == operand for primitive fields except for Double, Float.
+use '==' operand for primitive fields except for Double, Float.
 
 ***
 ## Item11 : Always override hashCode when you override equals
+
+You must override *hashCode* in every class that overrides *equals*. If you don't `Hashmap` and `HashSet` will not function properly.
+
+
+
 
 {% include note.html content="" %}
 

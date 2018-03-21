@@ -1,10 +1,9 @@
 ---
-title: "Who Am I"
+title:
 keywords: sample homepage
 tags: [introduction]
 sidebar: mydoc_sidebar
 permalink: index.html
-summary: A little bit about myself. 
 toc: false
 ---
 
