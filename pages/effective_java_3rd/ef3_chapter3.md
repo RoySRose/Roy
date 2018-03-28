@@ -253,10 +253,43 @@ use '==' operand for primitive fields except for Double, Float.
 
 You must override *hashCode* in every class that overrides *equals*. If you don't `Hashmap` and `HashSet` will not function properly.
 
+When overriding the *hashCode*, below conditions has to be satisfied
+- Return values of *hashCode* must be same during an execution of the application.
+- **If return value of *equals* is true then return value of *hashCode* must be the same**
+- It's better in the performance to use different return value of *hashCode* for Objects that are not equal
 
+Below hashCode is a typical hashcode and also a good hashCode for `PhoneNumber` class
+````java
+// Typical hashCode method
+@Override 
+public int hashCode() {
+     int result = Short.hashCode(areaCode);
+     result = 31 * result + Short.hashCode(prefix);
+     result = 31 * result + Short.hashCode(lineNumber);
+     return result;
+}
+````
+You **shouldn't leave out significant fields** from the hash code to improve performance.
+Changing multiplication to shift calculation results better performance. But modern VMs do this optimization automatically.
 
+Caching hash code is a good way to increase performance 
+````java
+// Lazily initialized cached hash code(Item 83)
+private volatile int hashCode;
+@Override
+public int hashCode() {
+    int result = hashCode;
+    if (result == 0) {
+        result = Short.hashCode(areaCode);
+        result = 31 * result + Short.hashCode(prefix);
+        result = 31 * result + Short.hashCode(lineNumber);
+        hashCode = result;
+    }
+    return result;
+}
+````
 
-{% include note.html content="" %}
+{% include note.html content="You must override hashCode in every class that overrides equals" %}
 
 ***
 ## Item12 : Always override toString
@@ -267,7 +300,15 @@ But still as important for any developers who uses this class and much easier to
 Practically, `toString` method should return all information in the object.
 It'll be good to document your intentions. 
 
-Usually it's not a good idea to specify the format, but still acceptable if there is any standard representation in the society that everyone agrees.
+Usually it's not a good idea to specify the format, but still acceptable if there is any standard representation in the society that everyone agrees.  
+For example, PhoneNumber
+````java
+    @Override
+    public String toString() {
+        return String.format("(%03d) %03d-%04d", areaCode, prefix, lineNumber);
+    }
+    //output : (111) 222-3333
+````
 
 You don't have to override `toString` method in static utility class(Item4) and most enum type(item 34), since Java already provides a perfectly good one.
 However you should write for the abstract class whose subclasses share a common string representation.
@@ -283,7 +324,7 @@ The *Cloneable* interface was intended as a <a href="#" data-toggle="tooltip" da
 Immutable classes has no need for providing a *clone* method.
 
 When creating a *clone* method, you must ensure that it does no harm to the original object.
-ch3.item13.ex3 shows problem when original objects are affected by the clones.
+package ch3.item13.ex3 shows problem when original objects are affected by the clones.
 ````java
  @Override
      public Stack clone() {
@@ -305,7 +346,11 @@ Should not create *clone* method if the class is to be extended and new interfac
 
 {% include note.html content="Copy functionality is best provided by constructors or factories, except Arrays" %}
 
+***
+## Item14 : Consider implementing Comparable
 
 
+
+{% include note.html content="" %}
 
 {% include links.html %}

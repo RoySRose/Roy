@@ -26,6 +26,9 @@ entries:
       url: /twitterbot.html
       output: web
 
+    - title: Lombok, Immutables 비교하기
+      url: /compare_autovalue_lombok_immutables.html
+      output: web
 
   - title: Effective Java 3rd Edition
     output: web
