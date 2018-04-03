@@ -42,4 +42,16 @@ entries:
       url: /ef3_chapter3.html
       output: web
 
+  - title: Miscellaneous
+    output: web
+    folderitems:
+
+    - title: Git Commands
+      url: /git_commands.html
+      output: web
+
+    - title: Personal Intellij Settings
+      url: /intellij_setting.html
+      output: web
+
 
