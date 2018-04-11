@@ -14,6 +14,11 @@ folder: configuration
 
 # Commands
 
+## Interactive Rebase 
+
+````
+git rebase -i HEAD~2
+````
 
 ## Creating a new branch based on upstream
 
@@ -23,6 +28,15 @@ To create a new branch with latest version of upstream.
 git fetch upstream
 git checkout upstream/master
 git checkout -b <new-branch-name>
+````
+
+## Creating a new branch based on upstream's pull request
+
+To create a new branch with latest version of upstream's pull request.
+
+````
+git fetch upstream pull/<pull-request-number>/head:<new-branch-name>
+git checkout <new-branch-name>
 ````
 
 ## Force push from local to origin
