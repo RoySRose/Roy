@@ -42,6 +42,10 @@ entries:
       url: /ef3_chapter3.html
       output: web
 
+    - title: Ch4 Classes and Interfaces
+      url: /ef3_chapter4.html
+      output: web
+
   - title: Miscellaneous
     output: web
     folderitems:

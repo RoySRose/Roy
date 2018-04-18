@@ -3,3 +3,4 @@ jekyll_platform: "Jekyll is a static site generator that builds sites using most
 WeakHashMap: "Elements in a weak hashmap can be reclaimed by the garbage collector if there are no strong/soft references to the key object, this makes them useful for caches/lookup storage"
 mixin : "Mixin is a type that a class can implement in addition to its “primary type” to declare that it provides some optional behavior"
 hardboilerplate : "기본으로 생성이 되어야 하는 고정된 코드를 뜻한다. equals(), hashCode(), toString(), construction/builder, accessors, getter, setters 등이 있다"
+modularexponentation : "modular exponentiation c ==> c = b^e (mod m)"
