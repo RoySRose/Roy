@@ -1,7 +1,4 @@
 package ch3.item10.ex1;
-/**
- * @author Roy Kim
- */
 
 //Broken - violates symmetry!
 public final class CaseInsensitiveString {

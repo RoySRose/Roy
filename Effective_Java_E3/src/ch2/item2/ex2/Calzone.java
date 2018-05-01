@@ -1,7 +1,4 @@
 package ch2.item2.ex2;
-/**
- * @author Roy Kim
- */
 
 public class Calzone extends Pizza {
     private final boolean sauceInside;

@@ -1,7 +1,4 @@
 package ch2.item7.ex1;
-/**
- * @author Roy Kim
- */
 
 import java.util.Arrays;
 import java.util.EmptyStackException;

@@ -1,7 +1,4 @@
 package ch3.item10.ex5;
-/**
- * @author Roy Kim
- */
 
 //Subject : Obey the general contract when overriding equals
 //Adds a value component without violating the equals contract

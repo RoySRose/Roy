@@ -1,8 +1,4 @@
 package ch2.item6.ex3;
-/**
- * @author Roy Kim
- */
-
 import java.util.regex.Pattern;
 
 //Subject : Avoid creating unnecesary objects

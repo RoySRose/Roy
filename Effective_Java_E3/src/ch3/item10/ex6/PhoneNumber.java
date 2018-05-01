@@ -1,7 +1,4 @@
 package ch3.item10.ex6;
-/**
- * @author Roy Kim
- */
 
 //Subject : Obey the general contract when overriding equals
 //Correct Version

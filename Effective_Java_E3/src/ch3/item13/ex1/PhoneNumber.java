@@ -1,7 +1,4 @@
 package ch3.item13.ex1;
-/**
- * @author Roy Kim
- */
 
 //Subject : Override clone judiciously
 public final class PhoneNumber implements Cloneable {

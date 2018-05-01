@@ -1,12 +1,6 @@
 package ch3.item12;
-/**
- * @author Roy Kim
- */
 
 //Subject : Always override toString
-import java.util.HashMap;
-import java.util.Map;
-
 public final class PhoneNumber {
     private final short areaCode;
     private final short prefix;

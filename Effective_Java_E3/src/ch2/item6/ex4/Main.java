@@ -1,7 +1,4 @@
 package ch2.item6.ex4;
-/**
- * @author Roy Kim
- */
 
 import java.util.regex.Pattern;
 

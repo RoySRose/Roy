@@ -1,7 +1,4 @@
 package ch3.item13.ex4;
-/**
- * @author Roy Kim
- */
 
 //Subject : Override clone judiciously
 //Harm to the original object after cloning
@@ -16,7 +13,7 @@ public class HashTable implements Cloneable {
         Entry(Object key, Object value, Entry next) {
             this.key   = key;
             this.value = value;
-            this.next  = next;
+            //this.next  = next;
         }
 
         // Recursively copy the linked list headed by this Entry
@@ -30,7 +27,7 @@ public class HashTable implements Cloneable {
     @Override public HashTable clone() {
         try {
             HashTable result = (HashTable) super.clone();
-            result.buckets = buckets.clone();
+            //result.buckets = buckets.clone();
             return result;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();

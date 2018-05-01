@@ -1,7 +1,4 @@
 package ch3.item10.ex4;
-/**
- * @author Roy Kim
- */
 
 // Trivial subclass of Point - doesn't add a value component
 import java.util.concurrent.atomic.AtomicInteger;

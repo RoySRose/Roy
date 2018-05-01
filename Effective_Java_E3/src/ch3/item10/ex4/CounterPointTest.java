@@ -1,7 +1,4 @@
 package ch3.item10.ex4;
-/**
- * @author Roy Kim
- */
 
 import java.util.HashSet;
 import java.util.Set;

@@ -2,10 +2,6 @@ package ch3.item13.ex2;
 
 import java.util.Objects;
 
-/**
- * @author Roy Kim
- */
-
 //Subject : Override clone judiciously
 //if super class clones by calling a constructor subclass result a failure
 public final class PhoneNumberWithName extends PhoneNumber {

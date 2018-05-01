@@ -1,7 +1,4 @@
 package ch3.item10.ex1;
-/**
- * @author Roy Kim
- */
 
 //Subject : Obey the general contract when overriding equals
 //violates symmetry

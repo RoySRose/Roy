@@ -1,7 +1,4 @@
 package ch2.item6.ex1;
-/**
- * @author Roy Kim
- */
 
 //Subject : Avoid creating unnecesary objects
 public class Another {

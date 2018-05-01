@@ -1,7 +1,4 @@
 package ch2.item7.ex2;
-/**
- * @author Roy Kim
- */
 
 import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;

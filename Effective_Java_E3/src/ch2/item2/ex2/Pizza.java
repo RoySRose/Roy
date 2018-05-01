@@ -1,7 +1,4 @@
 package ch2.item2.ex2;
-/**
- * @author Roy Kim
- */
 
 import java.util.EnumSet;
 import java.util.Objects;

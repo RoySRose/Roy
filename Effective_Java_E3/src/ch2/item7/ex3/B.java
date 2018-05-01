@@ -1,7 +1,4 @@
 package ch2.item7.ex3;
-/**
- * @author Roy Kim
- */
 
 //Subject : Eliminate obsolete object references7
 // Java program to illustrate Asynchronous callback

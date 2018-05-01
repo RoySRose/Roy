@@ -1,7 +1,4 @@
 package ch3.item10.ex2;
-/**
- * @author Roy Kim
- */
 
 //Broken - violates Transitivity!
 public class ColorPoint extends Point {

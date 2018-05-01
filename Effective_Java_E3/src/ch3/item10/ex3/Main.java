@@ -1,7 +1,4 @@
 package ch3.item10.ex3;
-/**
- * @author Roy Kim
- */
 
 //Subject : Obey the general contract when overriding equals
 //StackOverflowError

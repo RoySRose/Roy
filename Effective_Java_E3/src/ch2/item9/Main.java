@@ -1,7 +1,4 @@
 package ch2.item9;
-/**
- * @author Roy Kim
- */
 
 import java.io.*;
 

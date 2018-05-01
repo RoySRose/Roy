@@ -1,7 +1,4 @@
 package ch2.item2.ex1;
-/**
- * @author Roy Kim
- */
 
 //Subject : Builder Pattern
 class Main {

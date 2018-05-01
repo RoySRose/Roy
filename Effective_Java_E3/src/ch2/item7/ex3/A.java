@@ -1,7 +1,4 @@
 package ch2.item7.ex3;
-/**
- * @author Roy Kim
- */
 
 // Java program to illustrate Asynchronous callback
 class A implements OnGeekEventListener {
