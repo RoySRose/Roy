@@ -318,7 +318,7 @@ However you should write for the abstract class whose subclasses share a common 
 ***
 ## Item13 : Override clone judiciously
 
-The *Cloneable* interface was intended as a <a href="#" data-toggle="tooltip" data-original-title="{{site.data.glossary.mixin}}">*mixin interface*</a> 
+The *Cloneable* interface was intended as a <a href="#" data-toggle="tooltip" data-original-title="{{site.data.glossary.mixin}}">*mixin interface*</a>
 (Item 18) for objects to advertise that they permit cloning.
 
 Immutable classes has no need for providing a *clone* method.
