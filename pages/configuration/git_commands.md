@@ -14,6 +14,13 @@ folder: configuration
 
 # Commands
 
+## Force pull to overwrite local files
+
+````
+git fetch --all
+git reset --hard origin/master
+````
+
 ## Interactive Rebase 
 
 ````

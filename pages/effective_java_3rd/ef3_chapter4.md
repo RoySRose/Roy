@@ -112,7 +112,8 @@ This is also called **functional approach**.
         final Complex I = new Complex(0, 1);
 ````
 4. great for building blocks for other objects. They can be used as a map keys or set elements since you don't have to worry about change of the value.
-5. (변경)Provide failure atomicity for free (Zero possibility of inconsistency)(Item 76)
+5. Provide failure atomicity for free (Zero possibility of inconsistency)(Item 76)
+
 ````java
 public Object pop() {
 //        if (size == 0)
@@ -167,8 +168,6 @@ But still, referring to [this link (about boolean vs bitset)](https://stackoverf
 If we need to perform a multistep opertion this can be a problem(such as <a href="#" data-toggle="tooltip" data-original-title="{{site.data.glossary.modularexponentation}}">modular exponentation</a> ). For these cases we have *mutable companion* class. For `String` class, `StringBuilder` and `StringBuffer` are the mutable companion.
 It's much harder to use this *mutable companion* without predicting accurately of the process on the immutable class. Luckily, for BigInteger the implementors did this for you, so you don't have to use any of `BigInteger`'s *mutable companion*. 
 
-(변경) 뒤에서 BitSet 이 BigInteger 의 mutable companion 이라고 한 구문이 사라짐
-
 ### Making immutable class without using *final*
 
 By making constructor private, class can't be extended
@@ -182,8 +181,6 @@ By making constructor private, class can't be extended
         return new Complex2(re, im);
     }
 ````
-
-(변경) 스태틱 팩토리에 대한 장점내용 삭제
 
 ### Making defensive copies
 

@@ -46,6 +46,10 @@ entries:
       url: /ef3_chapter4.html
       output: web
 
+    - title: Ch5 Generics
+      url: /ef3_chapter5.html
+      output: web
+
   - title: Miscellaneous
     output: web
     folderitems:
