@@ -134,18 +134,196 @@ This is the preferred way to use the *instanceof* operator with generic types:
 ***
 ## Item27 : Eliminate unchecked warnings 
 
-***
-## Item28 : 
+Eliminate every unchecked warning that you can. It means that you won’t get a ClassCastException at runtime.
+If you can’t eliminate a warning and you are sure code is typesafe 
+suppress the warning with an @SuppressWarnings("unchecked") annotation.
+
+When you use @SuppressWarnings("unchecked") annotation, 
+ - use it on the smallest scope possible
+ - comment why it is safe.
+
+Suppress Warning annotation for return statement is illegal. declare a local variable and use it.
+```java
+@SuppressWarning("unchecked")
+int result = func(1);
+return result;
+
+```
+
+{% include note.html content="Unchecked warnings are important. Don't ignore them." %}
 
 ***
-## Item29 : 
+## Item28 : Prefer lists to arrays
+
+Arrays are covariant, which means, if A is sub of B then A[] is subtype of B[].
+Generics, by contrast, are invariant.
+
+```java
+// Arrays fails at runtime!
+Object[] objectArray = new Long[1];
+objectArray[0] = "I don't fit in"; // Throws ArrayStoreException
+```
+```java
+// Generics fail at compile time!
+List<Object> ol = new ArrayList<Long>(); // Incompatible types ol.add("I don't fit in");
+
+```
+
+Types such as E, List<E>, and List<String> are technically known as  <a href="#" data-toggle="tooltip" data-original-title="{{site.data.glossary.nonreifiable}}">non-reifiable</a> types. 
+
+The only parameterized types that are reifiable are unbounded wildcard types such as List<?> and Map<?,?> (Item 23). It is legal, though infrequently useful, to create arrays of unbounded wildcard types.
+
+When you get a generic array creation error, the best solution is often to use the collection type List<E> in preference to the array type E[].
+**You might sacrifice some performance or conciseness, but in exchange you get better type safety and interoperability.**
+
+- [Article of difference in performance between list and array.](https://stackoverflow.com/questions/169973/when-should-i-use-a-list-vs-a-linkedlist/29263914#29263914)
+
+```java
+//before generics
+public class Chooser {
+    private  final  Object[] choiceArray;
+
+    public Chooser(Collection choices){
+        choiceArray = choices.toArray();
+    }
+
+    public Object choose() {
+        Random rnd = ThreadLocalRandom.current();
+        return choiceArray[rnd.nextInt(choiceArray.length)];
+    }
+}
+```
+```java
+//List based chooser - typesafe
+public class Chooser2<T> {
+    private final ArrayList<T> choiceList;
+
+    public Chooser2(Collection<T> choices){
+        choiceList = new ArrayList<>(choices);
+    }
+
+    public Object choose() {
+        Random rnd = ThreadLocalRandom.current();
+        return choiceList.get(rnd.nextInt(choiceList.size()));
+    }
+}
+```
+
+{% include note.html content="Arrays and generics have very different type rules. Arrays are covariant and reified; generics are invariant and erased. As a consequence, arrays provide runtime type safety but not compile-time type safety and vice versa for generics. Generally speaking, arrays and generics don’t mix well. If you find yourself mixing them and getting compile-time errors or warnings, your first impulse should be to replace the arrays with lists." %}
+
+***
+## Item29 : Favor generic types
+
+Let's generify stack code.
+
+```java
+//Object-based collection - a prime candidate for generics
+public class Stack {
+    private Object[] elements;
+    private int size = 0;
+    private static final int DEFAULT_INITIAL_CAPACITY = 16;
+
+    public Stack() {
+        elements = new Object[DEFAULT_INITIAL_CAPACITY];
+    }
+
+    public void push(Object e) {
+        ensureCapacity();
+        elements[size++] = e;
+    }
+
+    public Object pop() {
+        if (size == 0)
+            throw new EmptyStackException();
+        Object result = elements[--size];
+        elements[size] = null; 
+        return result;
+    }
+
+    public boolean isEmpty(){
+        return size == 0;
+    }
+    
+    private void ensureCapacity() {
+        if (elements.length == size)
+            elements = Arrays.copyOf(elements, 2 * size + 1);
+    }
+}
+```
+
+Changing all *Object* to *E* as below generates an error.
+
+```java
+public class StackGeneric<E> {
+    private E[] elements;
+    private int size = 0;
+    private static final int DEFAULT_INITIAL_CAPACITY = 16;
+
+    public StackGeneric() {
+        //ERROR!!!!!!
+        elements = new E[DEFAULT_INITIAL_CAPACITY];
+    }
+
+    public void push(E e) {
+        ensureCapacity();
+        elements[size++] = e;
+    }
+
+    public E pop() {
+        if (size == 0)
+            throw new EmptyStackException();
+        E result = elements[--size];
+        elements[size] = null; // Eliminate obsolete reference
+        return result;
+    }
+    
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
+    private void ensureCapacity() {
+        if (elements.length == size)
+            elements = Arrays.copyOf(elements, 2 * size + 1);
+    }
+}
+```
+
+To avoid the error. There are two reasonable ways.
+
+ 1. Create an array of Object and cast to generic array type with suppressWarnings.
+
+```java
+    @SuppressWarnins("unchecked")
+    public StackGeneric() {
+        elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY];
+    }
+```
+
+ 2. Change the type of the field *elements* from E[] to Object[].
+
+```java
+private Object[] elements;
+```
+
+Since 1st approach is more readable and concise(only requires single cast where array is created).
+it's more prefered and commonly used in practice. But it does cause *heap pollution* (Item32),
+causing some programmers to choose the second option.
+
+Trying to create a Stack<int> or Stack<double> will result in a compile-time error.
+This is a fundamental limitation of Java’s generic type system.
+You can work around this restriction by using boxed primitive types.(Item 61)
+
+{% include note.html content="It is not always possible or desirable to use lists inside your generic types. Java doesn’t support lists natively, so some generic types, such as ArrayList, must be implemented atop arrays. Other generic types, such as HashMap, are implemented atop arrays for performance." %}
 
 ***
 ## Item30 : 
 
+{% include note.html content="" %}
+
 ***
 ## Item31 : 
 
+{% include note.html content="" %}
 
 
 
