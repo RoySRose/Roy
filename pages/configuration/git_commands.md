@@ -23,9 +23,14 @@ git reset --hard origin/master
 
 ## Interactive Rebase 
 
+### fix commits
 ````
 git rebase -i HEAD~2
 ````
+
+### rebase on working branch
+
+
 
 ## Creating a new branch based on upstream
 

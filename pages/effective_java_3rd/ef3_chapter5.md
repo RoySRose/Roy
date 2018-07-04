@@ -155,7 +155,7 @@ return result;
 ***
 ## Item28 : Prefer lists to arrays
 
-Arrays are covariant, which means, if A is sub of B then A[] is subtype of B[].
+Arrays are covariant, which means, if A is subtype of B then A[] is subtype of B[].
 Generics, by contrast, are invariant.
 
 ```java
@@ -316,16 +316,149 @@ You can work around this restriction by using boxed primitive types.(Item 61)
 {% include note.html content="It is not always possible or desirable to use lists inside your generic types. Java doesn’t support lists natively, so some generic types, such as ArrayList, must be implemented atop arrays. Other generic types, such as HashMap, are implemented atop arrays for performance." %}
 
 ***
-## Item30 : 
+## Item30 : Favor generic methods
+
+
 
 {% include note.html content="" %}
 
 ***
-## Item31 : 
+## Item31 : Use bounded wildcards to increase API flexibility
 
-{% include note.html content="" %}
+As parameterized types are *invariant*(if A is sub/super type of B, List\<A\> is not a sub/super type of List\<B\>),
+sometimes we need more flexibility than invariant typing can provide. So here comes **bounded wildcard**.
+
+
+### For maximum flexibility, user wildcard types
+
+Stack as an example, suppose stack is Stack\<Number\> and the element is Integer.
+For the pushAll, popAll method below it will create an error message.
+Those will only work when element type exactly matches that of the stack.
+
+```java
+    //pushAll method without wildcard type - deficient!
+    public void pushAll(Iterable<E> src) {
+        for (E e : src)
+            push(e);
+    }
+
+    // Wildcard type for parameter that serves as an E producer
+    public void pushAll(Iterable<? extends E> src) {
+        for (E e : src)
+            push(e);
+    }
+
+    ///////////////
+    // popAll method without wildcard type - deficient!
+    public void popAll(Collection<E> dst) {
+        while (!isEmpty())
+            dst.add(pop());
+    }
+    
+    // Wildcard type for parameter that serves as an E consumer
+    public void popAll(Collection<? super E> dst) {
+        while (!isEmpty())
+            dst.add(pop());
+    }
+```
+
+So when to use super/extends?
+
+PECS : producer-extends, consumer-super
+
+### Do not use bounded wildcard types as return types
+
+If bounded wildcard types are used as return type
+it will be forced to use wildcard types in client code.
+
+**If the user of a class has to think about wildcard types, there is probably something wrong with its API.**
+
+```java
+//do not use
+public static <E> Set<? extends E> union(Set<? extends E> s1,
+                               Set<? extends E> s2)
+```
+
+### Java is getting clever
+
+Prior to Java 8, below causes error
+
+```java
+    Set<Integer> integers = ... ;
+    Set<Double> doubles = ... ;
+    Set<Number> numbers = union(integers, doubles);
+```
+
+Explicit type parameter was required
+
+```java
+    Set<Integer> integers = ... ;
+    Set<Double> doubles = ... ;
+    Set<Number> numbers = Union.<Number>union(integers, doubles);
+```
+
+### Complex methods
+
+Let's revise *max* method from Item 30.
+
+```java
+    public static <T extends Comparable<T>> T max(List<T> list){
+    ...
+    }
+
+    public static <T extends Comparable<? super T>> T max( List<? extends T> list){
+    ...
+    }
+```
+
+Comparable(or Comparator) is always consumer. Which lead to `Comparable<? super T>`
+
+```java
+    List<ScheduledFuture<?>> scheduledFuture = ...
+```
+
+ScheduledFuture can't apply to the original method declaration since ScheduledFuture
+doesn't implement Comparable\<ScheduledFuture\> and is subinterface of `Delayed`, which extends Comparable\<Delayed\>
+`ScheduledFuture` can't be compared to `ScheduledFuture`, but can be compared to `Delayed`.
+
+Generally, the wildcard is required to support types that do not implement Comparable directly but extend a type that des.
+
+### Unbounded type parameter vs. unbounded wildcard
+
+
+```java
+    //1. Unbounded type parameter
+    public static <E> void swap(List<E> list, int i, int j) {
+        list.set(i, list.set(j, list.get(i)));
+    }
+
+    //2. Unbounded wildcard
+    public static void swap2(List<?> list, int i, int j){
+        swapHelper(list, i,j);
+    }
+    // Private helper method for wildcard capture
+    private static <E> void swapHelper(List<E> list, int i, int j) {
+        list.set(i, list.set(j, list.get(i)));
+    }
+```
+
+Second approach is preferred, since it is simple.
+Unbounded/bounded type parameter -> unbounded/bounded wildcard
+
+Since only `null` can be input List\<?\> helper is needed as above.
+
+Before finishing this item. A question arose. Why is second approach preferred?
+Check 'Under which circumstances are the generic version and the wildcard version of a method equivalent?' from [this link](http://www.angelikalanger.com/GenericsFAQ/FAQSections/ProgrammingIdioms.html#FAQ302) to get the answer and nice explanations on generics
+
+{% include note.html content="Using wildcard types in your APIs, while tricky, makes the APIs far more flexible" %}
+
+***
+
 
 
 
 {% include links.html %}
+
+
+
 
