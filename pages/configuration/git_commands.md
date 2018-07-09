@@ -30,7 +30,16 @@ git rebase -i HEAD~2
 
 ### rebase on working branch
 
+From origin's branch to working branch.
 
+````
+git pull --rebase origin <branch-name>
+````
+
+### continue rebase
+````
+git rebase --continue
+````
 
 ## Creating a new branch based on upstream
 
@@ -53,11 +62,31 @@ git checkout <new-branch-name>
 
 ## Force push from local to origin
 
-From local repository force push to origin 
+From local repository force push to origin.
 
 ````
 git push -f origin <branch-name>
 ````
+
+# Using git with SourceTree
+
+1. SourceTree : Clone from URL
+2. Create a new branch with upstream(origin)'s master 
+   - SourceTree : Remote > Upstream(Origin) > rightclick on master and checkout
+   - Git : [Check here](https://roysrose.github.io/roy/git_commands.html#creating-a-new-branch-based-on-upstream)
+3. Start programming
+4. Commit or Stash the creation
+5. Rebase the upstream(origin)'s master to your working branch
+    - SourceTree : Pull menu > check 'Rebase instead of merge' check box > start pulling
+    - Git : [Check here](https://roysrose.github.io/roy/git_commands.html#rebase-on-working-branch)
+6. If conflict, fix problem by resolving conflict and
+    - SourceTree : Actions menu > continue
+    - Git : [Check here](https://roysrose.github.io/roy/git_commands.html#continue-rebase)
+7. Push Branch to upstream(origin)
+    - SourceTree : Push menu > start pushing
+    - Git : [Check here](https://roysrose.github.io/roy/git_commands.html#force-push-from-local-to-origin)(remove -f for without force)
+8. Merge to Master from Github
+9. Start again from 2 by creating a new branch with upstream(origin)'s master.
 
 
 
