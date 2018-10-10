@@ -50,6 +50,14 @@ entries:
       url: /ef3_chapter5.html
       output: web
 
+    - title: Ch6 Enums and Annotations
+      url: /ef3_chapter6.html
+      output: web
+
+    - title: Ch7 Lamdas and Streams
+      url: /ef3_chapter7.html
+      output: web
+
   - title: Miscellaneous
     output: web
     folderitems:
