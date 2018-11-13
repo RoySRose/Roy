@@ -58,6 +58,14 @@ entries:
       url: /ef3_chapter7.html
       output: web
 
+    - title: Ch8 Methods
+      url: /ef3_chapter8.html
+      output: web
+
+    - title: Ch9 General Programming
+      url: /ef3_chapter9.html
+      output: web
+
   - title: Miscellaneous
     output: web
     folderitems:

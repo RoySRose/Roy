@@ -1,12 +1,12 @@
 ---
-title: Chapter7. Lamdas and Streams
-keywords: effective java, effective java 3rd ch7
-last_updated: Aug 7, 2018
-created : Aug 7, 2018
+title: Chapter8. Methods
+keywords: effective java, effective java 3rd ch8
+last_updated: Nov 13, 2018
+created : Oct 10, 2018
 tags: [effective_java]
 summary:
 sidebar: mydoc_sidebar
-permalink: ef3_chapter7.html
+permalink: ef3_chapter8.html
 folder: programming
 ---
 
